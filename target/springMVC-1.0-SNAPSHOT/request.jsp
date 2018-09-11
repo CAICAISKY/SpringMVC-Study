@@ -11,9 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/entityRequest.do" method="post">
+    <form action="/request.do" method="post">
         <input type="text" name="name"/>
         <input type="text" name="age"/>
+        <input type="file" name="file"/>
         <input type="submit" value="提交"/>
     </form>
 </body>

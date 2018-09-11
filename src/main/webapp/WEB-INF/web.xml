@@ -10,7 +10,7 @@
     <!--默认情况下会到WEB-INF目录下加载servletName-servlet.xml,可以通过contextConfigLocation属性来设置配置文件路径-->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc.xml</param-value>
+      <param-value>classpath:spring-mvc-xml.xml</param-value>
     </init-param>
     <!--默认情况下，Servlet只有在被请求时才会创建并初始化实例，可以通过load-on-startup来使服务已启动就创建-->
     <load-on-startup>1</load-on-startup>
@@ -28,4 +28,20 @@
     <!--页面路径，默认在webapp目录下-->
     <location>/error/500.html</location>
   </error-page>
+
+  <!--乱码过滤器-->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <!--设置过滤器映射-->
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
 </web-app>

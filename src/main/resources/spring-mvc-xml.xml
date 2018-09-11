@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--前端控制器，XML方式下必写-->
-    <bean name="/hello.do" class="com.springMVC.controller.HelloController"/>
+    <bean name="/hello.do" class="com.springMVC.xml.controller.HelloController"/>
 
     <!--映射器,可不写-->
     <!-- Controller的bean中的将name当作url请求进行配对，适用于一对一的情况，springMVC默认使用这种

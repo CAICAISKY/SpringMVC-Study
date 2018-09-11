@@ -1,4 +1,4 @@
-package com.springMVC.controller;
+package com.springMVC.xml.controller;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
