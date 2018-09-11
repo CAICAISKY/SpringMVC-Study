@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--前端控制器，XML方式下必写-->
+    <bean name="/hello.do" class="com.springMVC.controller.HelloController"/>
+
+    <!--映射器,可不写-->
+    <!-- Controller的bean中的将name当作url请求进行配对，适用于一对一的情况，springMVC默认使用这种
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    -->
+    <!--将多个请求交给指定id的bean的action进行处理
+    <bean id="helloController" class="com.springMVC.controller.HelloController"/>
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/add.do">helloController</prop>
+                <prop key="/hello.do">helloController</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+
+    <!--适配器，可不写
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"/>
+    -->
+
+    <!--视图解析器，在配置方式下当ModelAndView中的ViewName为真实路径时可不写，否则必须写
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    -->
+
+    <!--从JSP直接到JSP或html的转发控制器
+    <bean name="/index.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="index.jsp"/>
+    </bean>
+    -->
+</beans>
