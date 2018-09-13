@@ -3,6 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+  <!--主页配置-->
+  <welcome-file-list>
+    <welcome-file>submit.jsp</welcome-file>
+  </welcome-file-list>
+
   <!--配置spring前端控制器-->
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>

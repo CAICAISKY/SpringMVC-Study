@@ -3,6 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+  <!--主页配置-->
+  <welcome-file-list>
+    <welcome-file>submit.jsp</welcome-file>
+  </welcome-file-list>
+
   <!--配置spring前端控制器-->
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
@@ -10,7 +15,7 @@
     <!--默认情况下会到WEB-INF目录下加载servletName-servlet.xml,可以通过contextConfigLocation属性来设置配置文件路径-->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc-xml.xml</param-value>
+      <param-value>classpath:spring-mvc.xml</param-value>
     </init-param>
     <!--默认情况下，Servlet只有在被请求时才会创建并初始化实例，可以通过load-on-startup来使服务已启动就创建-->
     <load-on-startup>1</load-on-startup>

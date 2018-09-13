@@ -1,48 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--前端控制器，XML方式下必写-->
-    <bean name="/hello.do" class="com.springMVC.controller.HelloController"/>
-    <bean name="/request.do" class="com.springMVC.controller.EntityRequestController"></bean>
-    <!--映射器,可不写-->
-    <!-- Controller的bean中的将name当作url请求进行配对，适用于一对一的情况，springMVC默认使用这种
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    -->
-    <!--将多个请求交给指定id的bean的action进行处理
-    <bean id="helloController" class="com.springMVC.controller.HelloController"/>
-    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="/add.do">helloController</prop>
-                <prop key="/hello.do">helloController</prop>
-            </props>
-        </property>
-    </bean>
-    -->
-<!--    &lt;!&ndash;文件上传配置&ndash;&gt;
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        &lt;!&ndash;文件最大限制&ndash;&gt;
-        <property name="maxUploadSize" value="540000"/>
-        &lt;!&ndash;设置编码&ndash;&gt;
-        <property name="defaultEncoding" value="utf-8"/>
-        &lt;!&ndash;指定上传路径，默认在webapp目录下&ndash;&gt;
-        <property name="uploadTempDir" value="tempFile"/>
-    </bean>-->
-    <!--适配器，可不写
-    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"/>
-    -->
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--开启MVC注解扫描-->
+    <mvc:annotation-driven/>
+    <!--设置需要扫描的路径，最好是与spring扫描区别开，只扫描@Controller注解，但目前没有加入Spring，为了方便就直接扫描整个包-->
+    <context:component-scan base-package="com.springMVC.annotation"/>
 
-    <!--视图解析器，在配置方式下当ModelAndView中的ViewName为真实路径时可不写，否则必须写
+    <!--如果在视图解析时需要使用物理路径，可以配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/jsp/"/>
+        <!--"/"默认webapp目录下-->
+        <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    -->
-
-    <!--从JSP直接到JSP或html的转发控制器
-    <bean name="/index.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-        <property name="viewName" value="index.jsp"/>
-    </bean>
-    -->
 </beans>
